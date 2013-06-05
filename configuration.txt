@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIGURATION>
+  <Width>1</Width>
+  <Length>1</Length>
+  <Spacing>1</Spacing>
+  <GridSpacing>30</GridSpacing>
+  <POINT>
+    <LogicalX>0</LogicalX>
+    <LogicalY>0</LogicalY>
+    <GuiX>30</GuiX>
+    <GuiY>30</GuiY>
+  </POINT>
+  <POINT>
+    <LogicalX>1</LogicalX>
+    <LogicalY>0</LogicalY>
+    <GuiX>60</GuiX>
+    <GuiY>30</GuiY>
+  </POINT>
+  <POINT>
+    <LogicalX>0</LogicalX>
+    <LogicalY>1</LogicalY>
+    <GuiX>30</GuiX>
+    <GuiY>60</GuiY>
+  </POINT>
+  <POINT>
+    <LogicalX>1</LogicalX>
+    <LogicalY>1</LogicalY>
+    <GuiX>60</GuiX>
+    <GuiY>60</GuiY>
+  </POINT>
+  <POINT>
+    <LogicalX>0</LogicalX>
+    <LogicalY>0</LogicalY>
+    <GuiX>0</GuiX>
+    <GuiY>0</GuiY>
+    <MACAddress>1c:bd:b9:7e:b6:a0</MACAddress>
+    <Strength>-51</Strength>
+  </POINT>
+  <POINT>
+    <LogicalX>0</LogicalX>
+    <LogicalY>0</LogicalY>
+    <GuiX>0</GuiX>
+    <GuiY>0</GuiY>
+    <MACAddress>f0:7d:68:13:a4:9e</MACAddress>
+    <Strength>-39</Strength>
+  </POINT>
+</CONFIGURATION>
