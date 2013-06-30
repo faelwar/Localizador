@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QFuture>
 
-#include "wlan.h"
+#include "receiver.h"
 
 class MainWindow;
 class Configuration;

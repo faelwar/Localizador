@@ -5,7 +5,6 @@
 
 #include <QPainter>
 #include <QFuture>
-#include <QtConcurrentRun>
 
 LocalizationGuiWidget::LocalizationGuiWidget(QWidget *parent) :
     QWidget(parent),

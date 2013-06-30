@@ -16,29 +16,13 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
-  <widget class="QPushButton" name="startstop_button">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>515</y>
-     <width>125</width>
-     <height>55</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>START /  STOP</string>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-  </widget>
   <widget class="QTableWidget" name="data_table">
    <property name="geometry">
     <rect>
      <x>155</x>
-     <y>485</y>
+     <y>259</y>
      <width>500</width>
-     <height>85</height>
+     <height>311</height>
     </rect>
    </property>
    <property name="horizontalScrollMode">
@@ -72,80 +56,20 @@
     </property>
    </column>
   </widget>
-  <widget class="QLineEdit" name="x_lineedit">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>485</y>
-     <width>40</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="y_lineedit">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>105</x>
-     <y>485</y>
-     <width>40</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>485</y>
-     <width>20</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>X:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>85</x>
-     <y>485</y>
-     <width>20</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Y:</string>
-   </property>
-  </widget>
   <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
      <x>9</x>
      <y>9</y>
      <width>782</width>
-     <height>462</height>
+     <height>201</height>
     </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1379</width>
+     <height>240</height>
+    </size>
    </property>
    <property name="widgetResizable">
     <bool>false</bool>
@@ -162,38 +86,206 @@
       <height>489</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/new/prefix1/dpi);</string>
+    </property>
    </widget>
   </widget>
-  <widget class="QPushButton" name="save_button">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>665</x>
-     <y>515</y>
-     <width>125</width>
-     <height>55</height>
+     <x>660</x>
+     <y>260</y>
+     <width>131</width>
+     <height>311</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Save</string>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Number of
+Measurements:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QSpinBox" name="spinBox">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>500</number>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Devices:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="devices">
+      <property name="maxCount">
+       <number>10</number>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="message_label">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="save_button">
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
-  <widget class="QLabel" name="message_label">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>665</x>
-     <y>490</y>
-     <width>125</width>
-     <height>20</height>
+     <x>21</x>
+     <y>261</y>
+     <width>131</width>
+     <height>311</height>
     </rect>
    </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Direction:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="South">
+        <property name="text">
+         <string>South</string>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="East">
+        <property name="text">
+         <string>East</string>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="West">
+        <property name="text">
+         <string>West</string>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="North">
+        <property name="text">
+         <string>North</string>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup</string>
+        </attribute>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>X:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="x_lineedit">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Y:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="y_lineedit">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="startstop_button">
+      <property name="text">
+       <string>START /  STOP</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
  <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
 </ui>

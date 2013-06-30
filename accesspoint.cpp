@@ -1,7 +1,12 @@
 #include "accesspoint.h"
 
-AccessPoint::AccessPoint(QString m){
+AccessPoint::AccessPoint(){
+
+}
+
+AccessPoint::AccessPoint(QString m, QString e){
     mac = m;
+    ESSID = e;
 }
 
 AccessPoint::AccessPoint(QString m, int lx, int ly){
@@ -10,7 +15,23 @@ AccessPoint::AccessPoint(QString m, int lx, int ly){
     logY = ly;
 }
 
+AccessPoint::AccessPoint(const AccessPoint& a){
+    this->mac = a.mac;
+    this->logX = a.logX;
+    this->logY = a.logY;
+    this->ESSID = a.ESSID;
+}
+
+AccessPoint AccessPoint::operator=(AccessPoint a){
+    this->mac = a.mac;
+    this->logX = a.logX;
+    this->logY = a.logY;
+    this->ESSID = a.ESSID;
+    return *this;
+}
+
 QString AccessPoint::getMAC(){return mac;}
+QString AccessPoint::getESSID(){return ESSID;}
 int AccessPoint::getlogX(){return logX;}
 int AccessPoint::getlogY(){return logY;}
 int AccessPoint::getguiX(){return guiX;}

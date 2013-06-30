@@ -1,7 +1,6 @@
 #include <QString>
 #include <math.h>
 #include <QFuture>
-#include <QtConcurrentRun>
 #include <iostream>
 
 #include "localizationwidget.h"
@@ -59,6 +58,7 @@ void LocalizationWidget::setConfiguration(Configuration* c){
 }
 
 void LocalizationWidget::calculatePosition(){
+    /*
     QVarLengthArray<Point*>* points = config->getPoints();
     int numAP = config->getAccessPoints()->count();
     //while(true){
@@ -101,7 +101,7 @@ void LocalizationWidget::calculatePosition(){
         cout << min << endl;
         localizationGui->updateUserPosition(points->at(min)->getLogX(), points->at(min)->getLogY());
         cout << points->at(min)->getLogX() << "  " << points->at(min)->getLogY() << flush;
-
+    */
 
    // }
    //return 0;

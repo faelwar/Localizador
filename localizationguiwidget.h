@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QVarLengthArray>
 #include <QFuture>
-#include "wlan.h"
+#include "receiver.h"
 #include <string>
 #include <math.h>
 using namespace std;

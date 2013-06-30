@@ -10,7 +10,7 @@
 #include "configuration.h"
 #include "point.h"
 
-#include "wlan.h"
+#include "receiver.h"
 
 using namespace std;
 
@@ -38,6 +38,13 @@ DataCaptureWidget::DataCaptureWidget(MainWindow* mw) :
     capturing = false;
     allowSave = true;
     selectedPoint = NULL;
+    Receiver r;
+    QList<QString> devs = r.getAvailableDevices();
+    for(int i = 0; i < devs.size(); i++){
+        ui->devices->addItem(devs[i]);
+    }
+
+
 }
 
 void DataCaptureWidget::setConfiguration(Configuration* c){
@@ -60,7 +67,7 @@ void DataCaptureWidget::timerExpired(){
 }
 
 void DataCaptureWidget::on_save_button_clicked()
-{
+{/*
     if (allowSave == true){
         allowSave = false;
         //make sure we stop capturing data when we do this... or disable the save button while capturing
@@ -71,7 +78,7 @@ void DataCaptureWidget::on_save_button_clicked()
         timer = new QTimer(this);
         connect(timer, SIGNAL(timeout()), this,SLOT(timerExpired()));
         timer->start(3500); //CHANGED
-    }
+    }*/
 }
 
 void DataCaptureWidget::on_startstop_button_clicked()
@@ -80,21 +87,37 @@ void DataCaptureWidget::on_startstop_button_clicked()
         capturing = true;
         ui->save_button->setEnabled(false);
         //QVarLengthArray<Point*>* points = config->getPoints();
-        SignalStrength* accessPoints;
-        Receiver r;
-        if (r.init(1)==OK){
-              accessPoints = r.Receive();
-              r.shutdown();
+        string d = ui->devices->currentText().toStdString();
+        Receiver r(d);
+        Direction dir;
+        if(ui->North->isChecked()){
+            dir = NORTH;
+        }else if(ui->East->isChecked()){
+            dir = EAST;
+        }else if(ui->South->isChecked()){
+            dir = SOUTH;
+        }else if(ui->West->isChecked()){
+            dir = WEST;
+        }else{
+            //show ERROR
+            capturing = false;
+            ui->save_button->setEnabled(true);
+            return;
         }
+        Measurement m(dir, QTime().currentTime());
 
-
-        for(int i = 0; i < config->getAccessPoints()->count(); i++ ){
-            //int row = ui->data_table->rowCount();
-            //get the selected point
-            selectedPoint->addData(QString(accessPoints[i].address),QTime(QTime::currentTime()), accessPoints[i].strength);
-            setSelectedPoint(selectedPoint);
+        for(int i = 0; i < ui->spinBox->value(); i++){
+            QList<rssi> aux = r.measureRSSI();
+            for(int i = 0; i < aux.size(); i++){
+                m.addData(aux[i]);
+            }
         }
-        //points->append(aux);
+        if(m.getList().size() != 0){
+            selectedPoint->addData(m);
+        }
+        setSelectedPoint(selectedPoint);
+        capturing = false;
+        ui->save_button->setEnabled(true);
     }else{
         capturing = false;
         ui->save_button->setEnabled(true);
@@ -113,12 +136,17 @@ void DataCaptureWidget::setSelectedPoint(Point* p){
     //here we can set all the fields for the gui
     ui->x_lineedit->setText(QString::number(p->getLogX()));
     ui->y_lineedit->setText(QString::number(p->getLogY()));
-
+    int rowCount = 0;
     for (int j=0; j< dataPoints; j++){
-        ui->data_table->insertRow(j);
-        ui->data_table->setItem(j,2, new QTableWidgetItem(QString::number(p->getStrength(j)), 0));
-        ui->data_table->setItem(j,1, new QTableWidgetItem(p->getMAC(j), 0));
-        ui->data_table->setItem(j,0, new QTableWidgetItem(p->getTime(j).toString(), 0));
+        for(int k = 0; k < p->getMeasurement(j).getList().size(); k++){
+            ui->data_table->insertRow(rowCount);
+
+            ui->data_table->setItem(rowCount,2, new QTableWidgetItem(QString::number(p->getMeasurement(j).getStrength(k)), 0));
+            cout << p->getMeasurement(j).getStrength(k) << "_" << (p->getMeasurement(j).getESSID(k)).toStdString() << endl;
+            ui->data_table->setItem(rowCount,1, new QTableWidgetItem(p->getMeasurement(j).getESSID(k), 0));
+            ui->data_table->setItem(rowCount,0, new QTableWidgetItem(p->getMeasurement(j).getTime(), 0));
+            rowCount++;
+        }
 
         //ui->data_table->item(row,0)->setFlags(Qt::ItemIsEnabled);
     }

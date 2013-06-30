@@ -8,9 +8,13 @@
 class AccessPoint
 {
 public:
-    AccessPoint(QString m);
+    AccessPoint();
+    AccessPoint(QString m, QString e);
     AccessPoint(QString m, int lx, int ly);
+    AccessPoint(const AccessPoint& a);
+    AccessPoint operator=(AccessPoint a);
     QString getMAC();
+    QString getESSID();
     int getlogX();
     int getlogY();
     int getguiX();
@@ -22,6 +26,7 @@ public:
 
 private:
     QString mac;
+    QString ESSID;
     int logX;
     int logY;
     int guiX;

@@ -52,6 +52,12 @@ Configuration::Configuration(int w, int l, int spc, QString file, QList<AccessPo
 
 }
 
+Configuration::Configuration(QString file, QList<AccessPoint*> list){
+    fullFilePath = file;
+
+
+}
+
 Configuration::Configuration(QString file){
     fullFilePath = file;
     width = 0;
@@ -166,7 +172,7 @@ void Configuration::readFromFile(){
                 xmlReader.readNext();
             }else if(xmlReader.name() == "ACCESSPOINT"){
                 //create new access point and call access point readfromfile function
-                AccessPoint* ap = new AccessPoint("");
+                AccessPoint* ap = new AccessPoint("","");
                 ap->readFromFile(&xmlReader);
                 apList.append(ap);
             }else if(xmlReader.name() == "POINT"){

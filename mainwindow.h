@@ -32,6 +32,7 @@ public:
     void switchToDataCaptureWidget();
     void newConfigurationFromData(int w, int l, int spc, QString filePath, QList<AccessPoint*> list);//this will need a AP listing too
     void newConfigurationFromFile(QString filePath);//will read all existing configuration parameters from file
+    void newConfigurationFromData(QString filePath, QList<AccessPoint*> list);
 
 public slots:
     //void previous();

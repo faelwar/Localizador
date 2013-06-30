@@ -3,7 +3,7 @@
 #include "configuration.h"
 #include "accesspoint.h"
 
-#include <QtConcurrentRun>
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -54,6 +54,9 @@ void MainWindow::newConfigurationFromData(int w, int l, int spc, QString filePat
     config = new Configuration(w,l,spc,filePath, list);
 }
 
+void MainWindow::newConfigurationFromData(QString filePath, QList<AccessPoint*> list){
+    config = new Configuration(filePath, list);
+}
 
 void MainWindow::newConfigurationFromFile(QString filePath){
     config = new Configuration(filePath);

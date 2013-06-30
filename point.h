@@ -7,16 +7,15 @@
 #include <QTime>
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
+#include "measurement.h"
+
+#include "rssi.h"
 
 class Point
 {
 public:
     Point(int xvalue,int yvalue, int gx, int gy);
-
-    void addData(QString mac, QTime t, int s);
-    QString getMAC(int i);
-    QTime getTime(int i);
-    int getStrength(int i);
+    void addData(Measurement m);
     int getLogX();
     int getLogY();
     int getGuiX();
@@ -24,15 +23,15 @@ public:
     void writeToFile(QXmlStreamWriter* xmlWriter);
     void readFromFile(QXmlStreamReader* xmlReader);
     int getNumberOfDataElements();
+    Measurement getMeasurement(int index);
 
 private:
     int logX;
     int logY;
     int guiX;
     int guiY;
-    QList<QString> macAddress;
-    QList<QTime> time;
-    QList<int> strength;
+    QList<Measurement> listRSSI;
+
 };
 
 #endif // POINT_H

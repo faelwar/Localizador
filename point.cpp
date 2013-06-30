@@ -13,50 +13,28 @@ Point::Point(int xvalue, int yvalue, int gx, int gy){
 }
 
 int Point::getNumberOfDataElements(){
-    return macAddress.size();
+    return listRSSI.size();
 }
 
-void Point::addData(QString mac, QTime t, int s){
-    macAddress.append(mac);
-    time.append(t);
-    strength.append(s);
-    cout << macAddress.size() << flush << endl;
-    for(int i = 0; i < macAddress.size(); i++){
-        cout << macAddress.at(i).toStdString() << flush << endl;
-    }
+Measurement Point::getMeasurement(int index){
+    return listRSSI[index];
 }
 
-QString Point::getMAC(int i){
-    if(macAddress.size() > i){
-        return macAddress.at(i);
-    }else{
-        return NULL;
-    }
+void Point::addData(Measurement m){
+
+    listRSSI.append(m);
+
 }
 
-QTime Point::getTime(int i){
-    if(time.size() >= i+1){
-        return time.at(i);
-    }else{
-        return QTime(0,0,0,0);
-    }
-}
-
-int Point::getStrength(int i){
-    if(strength.size() >= i+1){
-        return strength.at(i);
-    }else{
-        return NULL;
-    }
-}
 
 int Point::getLogX(){return logX;}
 int Point::getLogY(){return logY;}
 int Point::getGuiX(){return guiX;}
 int Point::getGuiY(){return guiY;}
 
+
 void Point::writeToFile(QXmlStreamWriter* xmlWriter){
-    xmlWriter->writeStartElement("POINT");
+    /*xmlWriter->writeStartElement("POINT");
         xmlWriter->writeTextElement("LogicalX",QString::number(logX));
         xmlWriter->writeTextElement("LogicalY",QString::number(logY));
         xmlWriter->writeTextElement("GuiX",QString::number(guiX));
@@ -71,13 +49,13 @@ void Point::writeToFile(QXmlStreamWriter* xmlWriter){
                 xmlWriter->writeTextElement("Strength",QString::number(strength.at(i)));
         }
 
-    xmlWriter->writeEndElement();
+    xmlWriter->writeEndElement();*/
 }
 
 
 void Point::readFromFile(QXmlStreamReader* xmlReader){
     //all we know upon entering the function is that the current token is <POINT>
-    while(!(xmlReader->isEndElement()) || !(xmlReader->name() == "POINT")){
+    /*while(!(xmlReader->isEndElement()) || !(xmlReader->name() == "POINT")){
 
         if (xmlReader->isStartElement()){
             if(xmlReader->name() == "LogicalX"){
@@ -110,6 +88,6 @@ void Point::readFromFile(QXmlStreamReader* xmlReader){
         }else{
             xmlReader->readNext();
         }
-    }
+    }*/
     //on the return from this function, all we know is that the token is </POINT>
 }

@@ -15,6 +15,10 @@ DataCaptureGuiWidget::DataCaptureGuiWidget(QWidget *parent) :
     ui(new Ui::DataCaptureGuiWidget)
 {
     ui->setupUi(this);
+    this->setStyleSheet("background-image: url(./images/dpi.png)");
+
+
+
 }
 
 DataCaptureGuiWidget::~DataCaptureGuiWidget()
@@ -26,6 +30,7 @@ DataCaptureGuiWidget::DataCaptureGuiWidget(DataCaptureWidget* dcw) :
     ui(new Ui::DataCaptureGuiWidget)
 {
     ui->setupUi(this);
+    this->setStyleSheet("background-image: url(./images/dpi.png)");
     captureWidget = dcw;
     selectedPoint = NULL;
 }
@@ -35,6 +40,7 @@ DataCaptureGuiWidget::DataCaptureGuiWidget(DataCaptureWidget* dcw, QWidget *pare
     ui(new Ui::DataCaptureGuiWidget)
 {
     ui->setupUi(this);
+    this->setStyleSheet("background-image: url(:/new/prefix1/dpi);background-repeat: none;");
     captureWidget = dcw;
     selectedPoint = NULL;
 }
@@ -78,6 +84,9 @@ void DataCaptureGuiWidget::mousePressEvent (QMouseEvent * event){
             if(shortestDistance <= 15){
                 selectedPoint = closestPoint;
                 captureWidget->setSelectedPoint(closestPoint);
+            }else{
+                pointList->append(new Point(mouseX, mouseY, mouseX, mouseY));
+
             }
 
         }

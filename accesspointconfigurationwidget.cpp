@@ -62,11 +62,11 @@ void AccessPointConfigurationWidget::on_finish_button_clicked()
         }
 
 
-        int x = ui->width_lineedit->text().toInt();
-        int y = ui->length_lineedit->text().toInt();
-        int spacing = ui->spacing_lineedit->text().toInt();
+        int x = 0;
+        int y = 0;
+        int spacing = 0;
 
-        mainwindow->newConfigurationFromData(x,y,spacing,filepath, apList);
+        mainwindow->newConfigurationFromData(filepath, apList);
         mainwindow->switchToDataCaptureWidget();
     }
 }

@@ -15,6 +15,7 @@ class Configuration
 {
 public:
     Configuration(int w, int l, int spc, QString file);
+    Configuration(QString file, QList<AccessPoint*> list);
     Configuration(int w, int l, int spc, QString file, QList<AccessPoint*> list);
     Configuration(QString file);
 

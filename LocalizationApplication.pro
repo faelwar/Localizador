@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui widgets
 
 TARGET = LocalizationApplication
 TEMPLATE = app
@@ -22,7 +22,9 @@ SOURCES += main.cpp\
     point.cpp \
     localizationguiwidget.cpp \
     accesspoint.cpp \
-    receiver.cpp
+    receiver.cpp \
+    rssi.cpp \
+    measurement.cpp
 
 HEADERS  += mainwindow.h \
     mainwidget.h \
@@ -35,7 +37,9 @@ HEADERS  += mainwindow.h \
     point.h \
     localizationguiwidget.h \
     accesspoint.h \
-    wlan.h
+    rssi.h \
+    measurement.h \
+    receiver.h
 
 FORMS    += mainwindow.ui \
     mainwidget.ui \
@@ -45,6 +49,11 @@ FORMS    += mainwindow.ui \
     datacapturewidget.ui \
     datacaptureguiwidget.ui \
     localizationguiwidget.ui
+
+OTHER_FILES +=
+
+RESOURCES += \
+    resources.qrc
 
 
 

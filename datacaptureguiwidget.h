@@ -18,7 +18,7 @@ namespace Ui {
 
 class DataCaptureGuiWidget : public QWidget
 {
-    Q_OBJECT
+    //Q_OBJECT
 
 public:
     explicit DataCaptureGuiWidget(QWidget *parent = 0);
