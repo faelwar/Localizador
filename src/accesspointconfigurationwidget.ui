@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AccessPointConfigurationWidget</class>
+ <widget class="QWidget" name="AccessPointConfigurationWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>579</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTableWidget" name="accesspoint_table">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>40</y>
+     <width>780</width>
+     <height>491</height>
+    </rect>
+   </property>
+   <property name="alternatingRowColors">
+    <bool>true</bool>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::SingleSelection</enum>
+   </property>
+   <property name="horizontalScrollMode">
+    <enum>QAbstractItemView::ScrollPerPixel</enum>
+   </property>
+   <property name="cornerButtonEnabled">
+    <bool>false</bool>
+   </property>
+   <property name="rowCount">
+    <number>0</number>
+   </property>
+   <attribute name="horizontalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>259</number>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>259</number>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderCascadingSectionResizes">
+    <bool>true</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>MAC Address</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>X Coordinate (px)</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Y Coordinate (px)</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>5</y>
+     <width>771</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter the X and Y coordinates of any Access Points that will be involved in the training phase.</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="finish">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>540</y>
+     <width>99</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Finish</string>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>accesspoint_table</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
